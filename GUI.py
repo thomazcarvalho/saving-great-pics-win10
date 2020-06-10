@@ -4,9 +4,8 @@ from tkinter import Tk, Frame, Label, Button, Entry, LEFT
 
 # nessa classe serão criados os controles que serão exibidos na tela
 class Application():
-    
     def __init__(self, master=None):
-        
+
         self.font = ('Arial', '10')
 
         # criando containers
@@ -31,12 +30,14 @@ class Application():
         self.titulo = Label(self.container1, text='WIN10')
         self.titulo['font'] = ('Arial', '10', 'bold')
         self.titulo.pack()
-        self.titulo2 = Label(self.container1, text='Salvar fotos da tela de entrada')
+        self.titulo2 = Label(
+            self.container1, text='Salvar fotos da tela de entrada')
         self.titulo2['font'] = ('Arial', '10', 'bold')
         self.titulo2.pack()
 
         # linha de inserção do usuário
-        self.usuario_label = Label(self.container2, text='Digite o nome de usuário do Win10: ')
+        self.usuario_label = Label(
+            self.container2, text='Digite o nome de usuário do Win10: ')
         self.usuario_label['font'] = self.font
         self.usuario_label.pack(side=LEFT)
 
@@ -44,7 +45,8 @@ class Application():
         self.usuario.pack(side=LEFT)
 
         # botão para dar continuidade
-        self.button = Button(self.container3, text='Enviar', font=('Arial', 10, 'bold'))
+        self.button = Button(self.container3, text='Enviar',
+                             font=('Arial', 10, 'bold'))
         self.button['command'] = self.save_pics
         self.button.pack()
 
@@ -54,10 +56,10 @@ class Application():
 
     def save_pics(self):
         from time import sleep
-        import win10images
+        import functions
         user = self.usuario.get()
         try:
-            win10images.save_pictures(user)
+            functions.save_pictures(user)
         except Exception:
             self.status['text'] = 'Ocorreu um erro. Não conseguimos salvar as fotos.'
         else:
