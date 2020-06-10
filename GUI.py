@@ -1,4 +1,3 @@
-import tkinter
 from tkinter import Tk, Frame, Label, Button, Entry, LEFT
 
 
@@ -61,7 +60,8 @@ class Application():
         try:
             functions.save_pictures(user)
         except Exception:
-            self.status['text'] = 'Ocorreu um erro. Não conseguimos salvar as fotos.'
+            self.status['text'] = 'Ocorreu um erro.' \
+                ' Não conseguimos salvar as fotos.'
         else:
             self.status['text'] = 'Copiando arquivos para pasta destino...'
             sleep(2)
@@ -69,7 +69,8 @@ class Application():
             sleep(2)
             self.status['text'] = 'Removendo arquivos desnecessários...'
             sleep(2)
-            self.status['text'] = 'Pronto! As fotos foram salvas na pasta "Fotos Windows 10" na Área de Trabalho.'
+            self.status['text'] = 'Pronto! As fotos foram salvas' \
+                ' na pasta "Fotos Windows 10" na Área de Trabalho.'
 
 
 # a classe Tk() permite que os widgets sejam utilizados

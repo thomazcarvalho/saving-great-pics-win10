@@ -6,6 +6,7 @@ def transfer_archives(from_folder, to_folder):
     copy_tree(from_folder, to_folder)
     print('Arquivos copiados!')
 
+
 def rename_all_archives(folder):
     from time import sleep
     import os
@@ -17,6 +18,7 @@ def rename_all_archives(folder):
         new_name = folder + '\\' + filename + '.jpg'
         os.rename(old_name, new_name)
     print('Pronto!')
+
 
 def delete_small_files(folder):
     from time import sleep
@@ -30,9 +32,12 @@ def delete_small_files(folder):
             os.remove(full_file_name)
     print('Finalizado!')
 
+
 def save_pictures(u):
     user = u
-    from_folder = 'C:/Users/' + user + '/AppData/Local/Packages/Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy/LocalState/Assets'
+    from_folder = 'C:/Users/' + user + \
+        '/AppData/Local/Packages/Microsoft.Windows.' \
+        'ContentDeliveryManager_cw5n1h2txyewy/LocalState/Assets'
     to_folder = 'C:/Users/' + user + '/Desktop/Fotos Windows 10'
     print()
     transfer_archives(from_folder, to_folder)
@@ -40,10 +45,13 @@ def save_pictures(u):
     rename_all_archives(to_folder)
     print()
     delete_small_files(to_folder)
-        
+
+
 def __main__():
     user = 'thoma'
-    from_folder = 'C:/Users/' + user + '/AppData/Local/Packages/Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy/LocalState/Assets'
+    from_folder = 'C:/Users/' + user + \
+        '/AppData/Local/Packages/Microsoft.Windows.' \
+        'ContentDeliveryManager_cw5n1h2txyewy/LocalState/Assets'
     to_folder = 'C:/Users/' + user + '/Pictures/Destaques/Novos'
     print()
     transfer_archives(from_folder, to_folder)
@@ -51,6 +59,7 @@ def __main__():
     rename_all_archives(to_folder)
     print()
     delete_small_files(to_folder)
+
 
 if __name__ == "__main__":
     __main__()
